@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Import Expense Model
+const Expense = require("./Expense");
+
 // Create Schema
 const UserSchema = new Schema(
   {
@@ -26,6 +29,10 @@ const UserSchema = new Schema(
       type: Date,
       default: Date.now,
     },
+    expenses: [{
+      type: Schema.Types.ObjectId,
+      ref: "Expense",
+    }],
   },
   {
     timestamps: true,
