@@ -6,14 +6,16 @@ const auth = require("../../middleware/auth");
 
 // User Model
 const Expense = require("../../models/Expense");
+const User = require("../../models/User");
 
 // @route GET api/expenses
-// @desc Get all expense
+// @desc Get all expenses
 // @access private
 router.get("/", auth, async (req, res) => {
   try {
     const expenses = await Expense.find().sort({ date: -1 })
     await res.json(expenses)
+    throw Error("Error: ", Error)
   } catch (error) {
     res.status(400).json("Error: ", error)
   }
@@ -38,10 +40,12 @@ router.post("/", auth, async (req, res) => {
   try {
     const newExpense = new Expense({
       description: req.body.description,
-      amount: req.body.amount
+      amount: req.body.amount,
+      category: req.body.category,
+      user: req.user.id,
     });
     const saveExpense = await newExpense.save()
-    const data = res.json(saveExpense)
+    res.json(saveExpense)
     throw Error("Error: ", Error);
   } catch (error) {
     res.status(400).json("Error: " + error);

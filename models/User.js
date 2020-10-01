@@ -29,10 +29,11 @@ const UserSchema = new Schema(
       type: Date,
       default: Date.now,
     },
-    expenses: [{
-      type: Schema.Types.ObjectId,
-      ref: "Expense",
-    }],
+    // expenses: [{
+    //   type: Schema.Types.ObjectId,
+    //   // type: Schema.ObjectId,
+    //   ref: "Expense",
+    // }],
   },
   {
     timestamps: true,
