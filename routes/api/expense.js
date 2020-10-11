@@ -17,7 +17,8 @@ router.get("/", auth, async (req, res) => {
     await res.json(expenses)
     throw Error("Error: ", Error)
   } catch (error) {
-    res.status(400).json("Error: ", error)
+    // res.status(400).json("Error: ", error)
+    res.status(status).json("Error: ", error);
   }
 })
 
@@ -29,7 +30,8 @@ router.get("/:id", auth, async (req, res) => {
     const expense = await Expense.findById(req.params.id);
     await res.json(expense);
   } catch (error) {
-    res.status(400).json("Error: ", error);
+    // res.status(400).json("Error: ", error);
+    res.status(status).json("Error: ", error);
   }
 });
 
@@ -37,6 +39,7 @@ router.get("/:id", auth, async (req, res) => {
 // @desc Add an expense
 // @access private
 router.post("/", auth, async (req, res) => {
+  console.log(req.user)
   try {
     const newExpense = new Expense({
       description: req.body.description,
@@ -48,11 +51,12 @@ router.post("/", auth, async (req, res) => {
     res.json(saveExpense)
     throw Error("Error: ", Error);
   } catch (error) {
-    res.status(400).json("Error: " + error);
+    // res.status(400).json("Error: " + error);
+    res.status(status).json("Error: ", error);
   }
 })
 
-// @route PUT api/expenses/:id
+// @route PATCH api/expenses/:id
 // @desc Update an expense
 // @access private
 router.patch("/:id", async (req, res) => {
@@ -62,7 +66,8 @@ router.patch("/:id", async (req, res) => {
     res.json("Expense Updated")
     throw Error("Error: ", Error)
   } catch (error) {
-    res.status(400).json("Error: " + error);
+    // res.status(400).json("Error: " + error);
+    res.status(status).json("Error: ", error);
   }
 })
 
@@ -95,7 +100,8 @@ router.delete("/:id", async (req, res) => {
     await res.json("Expense has been deleted!")
     throw Error("Error: ", Error)
   } catch (error) {
-    res.status(400).json("Error: " + error);
+    // res.status(400).json("Error: " + error);
+    res.status(status).json("Error: ", error);
   }
 })
 
