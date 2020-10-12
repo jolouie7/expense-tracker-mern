@@ -43,6 +43,7 @@ npm run dev
 ## Built With
 
 * [React Hooks](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
 * [Cypress](https://www.cypress.io/)
 * [React Bootstrap](https://react-bootstrap.github.io/)
 * [React Datepicker](https://github.com/Hacker0x01/react-datepicker/)
