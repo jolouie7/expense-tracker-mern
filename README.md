@@ -6,8 +6,8 @@ A personal expense tracker that tracks your monthly personal expenses
 
 #### [Live Site](https://my-expense-tracker-78b780.netlify.app/)
 
-![](public/expense-list.png)
-![](public/expense-graph.png)
+![Expense List](/Public/expense-list.png)
+![Expense Graph](/Public/expense-graph.png)
 
 ## Getting Started
 
